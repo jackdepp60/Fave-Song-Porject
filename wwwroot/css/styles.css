@@ -1,0 +1,157 @@
+﻿/* Global */
+body {
+    font-family: system-ui, sans-serif;
+    background: #ffff;
+    margin: 0 auto;
+    padding: 40px;
+    color: #d65762;
+    overflow-x: hidden;
+}
+
+/* Header Title */
+.title {
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 50px;
+    letter-spacing: 1px;
+    animation: fadeDown 1s ease-out;
+}
+
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 cards per row */
+    gap: 30px; /* spacing between cards */
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+
+/* Video Card */
+.video-card {
+    cursor: pointer;
+    background: #d65762;
+    padding: 15px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    transform: translateY(20px);
+    opacity: 0;
+    animation: cardFadeUp .8s ease forwards;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+    .video-card iframe {
+        width: 100%;
+        height: 200px;
+        border-radius: 12px;
+        border: none;
+    }
+
+
+    .video-card:hover {
+        background-color: #32354be2;
+    }
+
+    .video-card iframe {
+        width: 100%;
+        height: 200px;
+        border-radius: 0px;
+        border: none;
+    }
+
+    /* Hover Animation */
+    .video-card:hover {
+        transform: scale(1.03) translateY(-5px);
+        transition: .3s ease;
+        box-shadow: 0 0 30px rgba(255,255,255,0.15);
+    }
+
+/* Keyframes */
+@keyframes fadeDown {
+    from {
+        opacity: 0;
+        transform: translateY(-25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes cardFadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h3 {
+    color: white;
+    font-size: 1.2rem;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+
+
+
+@media (max-width: 1200px) {
+    .video-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 cards per row on smaller screens */
+    }
+}
+
+@media (max-width: 900px) {
+    .video-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 cards per row on tablets */
+    }
+}
+
+@media (max-width: 600px) {
+    .video-grid {
+        grid-template-columns: 1fr; /* 1 card per row on mobile */
+    }
+}
+
+
+/* Modal overlay */
+.modal {
+    display: none; /* hidden by default */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.8);
+}
+
+/* Modal content */
+.modal-content {
+    position: relative;
+    margin: 5% auto;
+    padding: 0;
+    width: 80%;
+    max-width: 800px;
+    background: #000;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+    .modal-content iframe {
+        width: 100%;
+        height: 450px;
+        border: none;
+    }
+
+/* Close button */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: #fff;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
